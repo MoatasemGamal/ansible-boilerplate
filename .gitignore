@@ -8,6 +8,12 @@ __pycache__/
 *.retry
 .ansible/
 
+# Ansible Vault
+.vault_pass
+vault_pass.txt
+.vault-password
+**/vault.yml
+
 # IDEs
 .idea/
 .vscode/
