@@ -1,0 +1,14 @@
+# Python
+*.pyc
+__pycache__/
+.venv/
+*.egg-info/
+
+# Ansible
+*.retry
+.ansible/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
