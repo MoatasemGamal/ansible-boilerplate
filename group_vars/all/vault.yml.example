@@ -1,0 +1,21 @@
+---
+# Example encrypted variables file
+# This file should be encrypted with ansible-vault
+#
+# To create an encrypted vault file:
+#   ansible-vault create group_vars/all/vault.yml --vault-password-file .vault_pass
+#
+# To encrypt this example file:
+#   ansible-vault encrypt group_vars/all/vault.yml.example --vault-password-file .vault_pass
+#
+# To edit an encrypted vault file:
+#   ansible-vault edit group_vars/all/vault.yml --vault-password-file .vault_pass
+#
+# Common secret variables:
+
+vault_db_password: "changeme"
+vault_api_key: "your-api-key-here"
+vault_ssh_private_key: |
+  -----BEGIN OPENSSH PRIVATE KEY-----
+  your-private-key-here
+  -----END OPENSSH PRIVATE KEY-----

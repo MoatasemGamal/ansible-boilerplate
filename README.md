@@ -50,6 +50,47 @@ To support multiple environments (e.g., production, staging), you can create sep
     ./scripts/run.sh playbooks/main.yml inventory/production.ini
     ```
 
+## Ansible Vault
+
+This project supports [Ansible Vault](https://docs.ansible.com/ansible/latest/vault_guide/vault.html) for encrypting sensitive data.
+
+### Setup Vault
+
+1. Generate a vault password file:
+    ```bash
+    ./scripts/generate-vault-password.sh
+    ```
+
+2. This creates `.vault_pass` which is automatically used by `scripts/run.sh`.
+
+### Using Vault
+
+Create an encrypted variables file:
+```bash
+ansible-vault create group_vars/all/vault.yml --vault-password-file .vault_pass
+```
+
+Encrypt an existing file:
+```bash
+ansible-vault encrypt <file> --vault-password-file .vault_pass
+```
+
+Edit an encrypted file:
+```bash
+ansible-vault edit group_vars/all/vault.yml --vault-password-file .vault_pass
+```
+
+Decrypt a file:
+```bash
+ansible-vault decrypt <file> --vault-password-file .vault_pass
+```
+
+### Best Practices
+
+- Keep `.vault_pass` secure and never commit it to git (it's already in `.gitignore`)
+- Use `vault.yml` for sensitive variables and reference them in your playbooks
+- See `group_vars/all/vault.yml.example` for an example structure
+
 ## Helper Commands
 
 ### Create a new role
@@ -61,4 +102,5 @@ ansible-galaxy init roles/my_new_role
 ```bash
 ansible-lint
 ```
+
 
