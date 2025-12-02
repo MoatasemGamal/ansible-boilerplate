@@ -14,7 +14,14 @@ if [[ -z "$VIRTUAL_ENV" ]]; then
     fi
 fi
 
+# Check for vault password file
+VAULT_OPTS=""
+if [[ -f ".vault_pass" ]]; then
+    VAULT_OPTS="--vault-password-file .vault_pass"
+fi
+
 ansible-playbook -i "$INVENTORY" "$PLAYBOOK" \
+  $VAULT_OPTS \
   --diff \
   --forks 10 \
   --limit "${LIMIT:-all}" \
