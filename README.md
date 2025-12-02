@@ -6,7 +6,7 @@ This is a generic Ansible project boilerplate.
 ## Structure
 
 - `playbooks/`: Contains the main playbooks that orchestrate tasks and roles.
-- `roles/`: Contains reusable Ansible roles. Create new roles with `ansible-galaxy init roles/role_name`.
+- `roles/`: Contains reusable Ansible roles. Create new roles with `ansible-galaxy init roles/role_name`. **Note:** User roles should not contain dots (`.`) in their names to distinguish them from vendor roles.
 - `inventory/`: Contains inventory files that define your target hosts and groups.
 - `group_vars/`: Variables that apply to groups of hosts defined in your inventory.
 - `host_vars/`: Variables that apply to specific individual hosts.
