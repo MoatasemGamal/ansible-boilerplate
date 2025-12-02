@@ -87,6 +87,11 @@ ansible-vault decrypt <file> --vault-password-file .vault_pass
 
 ### Best Practices
 
+**Tip:** Change the default editor for vault editing by setting the `EDITOR` environment variable:
+```bash
+export EDITOR=nano
+```
+
 - Keep `.vault_pass` secure and never commit it to git (it's already in `.gitignore`)
 - Use `vault.yml` for sensitive variables and reference them in your playbooks
 - See `group_vars/all/vault.yml.example` for an example structure
