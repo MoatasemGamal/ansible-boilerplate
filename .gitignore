@@ -8,6 +8,10 @@ __pycache__/
 *.retry
 .ansible/
 
+# hosts
+hosts.ini
+inventory/hosts.ini
+
 # Ansible Vault
 .vault_pass
 vault_pass.txt
