@@ -8,8 +8,8 @@ This is a generic Ansible project boilerplate.
 - `playbooks/`: Contains the main playbooks that orchestrate tasks and roles.
 - `roles/`: Contains reusable Ansible roles. Create new roles with `ansible-galaxy init roles/role_name`. **Note:** User roles should not contain dots (`.`) in their names to distinguish them from vendor roles.
 - `inventory/`: Contains inventory files that define your target hosts and groups.
-- `group_vars/`: Variables that apply to groups of hosts defined in your inventory.
-- `host_vars/`: Variables that apply to specific individual hosts.
+- `inventory/group_vars/`: Variables that apply to groups of hosts defined in your inventory.
+- `inventory/host_vars/`: Variables that apply to specific individual hosts.
 - `files/`: Static files to be copied to remote hosts without modification. Use with the `copy` module.
 - `templates/`: Jinja2 template files that support variable substitution. Use with the `template` module.
 - `filter_plugins/`: Custom Python filter functions for advanced data transformation in templates and playbooks.
@@ -67,7 +67,7 @@ This project supports [Ansible Vault](https://docs.ansible.com/ansible/latest/va
 
 Create an encrypted variables file:
 ```bash
-ansible-vault create group_vars/all/vault.yml --vault-password-file .vault_pass
+ansible-vault create inventory/group_vars/all/vault.yml --vault-password-file .vault_pass
 ```
 
 Encrypt an existing file:
@@ -77,7 +77,7 @@ ansible-vault encrypt <file> --vault-password-file .vault_pass
 
 Edit an encrypted file:
 ```bash
-ansible-vault edit group_vars/all/vault.yml --vault-password-file .vault_pass
+ansible-vault edit inventory/group_vars/all/vault.yml --vault-password-file .vault_pass
 ```
 
 Decrypt a file:
@@ -94,7 +94,7 @@ export EDITOR=nano
 
 - Keep `.vault_pass` secure and never commit it to git (it's already in `.gitignore`)
 - Use `vault.yml` for sensitive variables and reference them in your playbooks
-- See `group_vars/all/vault.yml.example` for an example structure
+- See `inventory/group_vars/all/vault.yml.example` for an example structure
 
 ## Helper Commands
 
